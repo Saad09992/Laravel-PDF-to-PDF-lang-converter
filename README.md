@@ -1,66 +1,198 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel PDF Language Converter
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based application for processing PDF documents and converting
+their content into another language.
 
-## About Laravel
+This project was developed as part of my professional software
+development experience.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The application combines PDF parsing, document generation, and language
+translation into a web-based workflow.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The backend is built with Laravel and integrates PDF processing libraries
+and a translation service to process document content and generate
+translated PDF output.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PDF document processing
+- PDF text extraction
+- Language translation
+- Translated PDF generation
+- Server-side document processing
+- Web-based Laravel application
+- API authentication support
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Processing Flow
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```text
+           PDF Document
+                │
+                ▼
+        ┌─────────────────┐
+        │   PDF Parsing   │
+        │  & Text Extract │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │    Translation  │
+        │      Service    │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │  PDF Generation │
+        └────────┬────────┘
+                 │
+                 ▼
+        Translated PDF
+```
 
-## Laravel Sponsors
+## Tech Stack
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Backend
 
-### Premium Partners
+- PHP 8.2+
+- Laravel 11
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### PDF Processing
 
-## Contributing
+- smalot/pdfparser
+- barryvdh/laravel-dompdf
+- mpdf/mpdf
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Translation
 
-## Code of Conduct
+- Google Translate integration
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### HTTP / API
 
-## Security Vulnerabilities
+- Guzzle
+- Laravel Sanctum
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Frontend / Build Tools
 
-## License
+- Blade
+- Vite
+- TailwindCSS
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Project Structure
+
+```text
+Laravel-PDF-to-PDF-lang-converter/
+│
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+├── resources/
+├── routes/
+├── storage/
+├── tests/
+├── artisan
+├── composer.json
+├── package.json
+└── README.md
+```
+
+## Requirements
+
+- PHP 8.2+
+- Composer
+- Node.js
+- npm
+- A supported database
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Saad09992/Laravel-PDF-to-PDF-lang-converter.git
+cd Laravel-PDF-to-PDF-lang-converter
+```
+
+### 2. Install PHP dependencies
+
+```bash
+composer install
+```
+
+### 3. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 4. Create the environment file
+
+```bash
+cp .env.example .env
+```
+
+### 5. Generate the application key
+
+```bash
+php artisan key:generate
+```
+
+Configure the required environment variables in `.env`.
+
+### 6. Run migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. Start the Laravel development server
+
+```bash
+php artisan serve
+```
+
+### 8. Start the frontend development server
+
+```bash
+npm run dev
+```
+
+## Development
+
+Laravel provides the application backend and document-processing workflow,
+while the PDF libraries handle document parsing and PDF generation.
+
+The application also integrates a translation service to convert extracted
+document content before generating the translated output.
+
+## My Contribution
+
+I worked on this project as part of my professional software development
+experience.
+
+My work involved the Laravel application and the PDF language-conversion
+workflow, including PDF processing, translation integration, and output
+generation.
+
+## What I Learned
+
+This project gave me practical experience with:
+
+- Laravel application development
+- PDF parsing and generation
+- External service integration
+- File processing
+- Backend application design
+- Authentication with Laravel Sanctum
+- Working with third-party PHP packages
+
+## Notes
+
+This repository is a public representation of a project worked on
+during my professional experience.
+
+Certain production-specific configuration, infrastructure, and
+company-specific implementation details are not included.
